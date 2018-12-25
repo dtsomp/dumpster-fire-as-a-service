@@ -31,8 +31,13 @@ class Random(Resource):
             return random.choice(dumpsterfires)
         return { 'dumpster fire': None }, 404
 
+class Root(Resource):
+    def get(self):
+        return { 'service name': 'dumpster fire as a service' }, 200
         
 
-api.add_resource(Random, '/random')
 port = int(os.environ.get('PORT', 33507))
+
+api.add_resource(Random, '/random')
+api.add_resource(Root, '/')
 app.run(port=port)
