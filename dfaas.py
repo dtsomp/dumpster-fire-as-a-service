@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
-import random
+import random, os
 
 app = Flask(__name__)
 
@@ -34,4 +34,5 @@ class Random(Resource):
         
 
 api.add_resource(Random, '/random')
-app.run(port=5000)
+port = int(os.environ.get('PORT', 33507))
+app.run(port=port)
