@@ -40,4 +40,4 @@ port = int(os.environ.get('PORT', 33507))
 
 api.add_resource(Random, '/random')
 api.add_resource(Root, '/')
-app.run(port=port)
+app.run(host='0.0.0.0', port=port)
